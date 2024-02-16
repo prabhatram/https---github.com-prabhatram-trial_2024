@@ -28,7 +28,6 @@ jobs:
       - name: Compile student's code
         run: javac -d bin src/*.java
 
-      - name: Compile and run tests
+      - name: Run tests using maven
         run: |
-          javac -cp bin:tests/junit-4.13.2.jar -d bin-tests tests/*.java
-          java -cp bin:bin-tests:tests/junit-4.13.2.jar org.junit.runner.JUnitCore AppTest
+          mvn -f pom.xml test
